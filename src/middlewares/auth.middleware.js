@@ -6,7 +6,7 @@
 // A partir da Aula 44, utilizaremos JWT (JSON Web Tokens) de verdade.
 
 // Chave de acesso temporária — em produção, isso vem de variável de ambiente
-const CHAVE_ACESSO = 'biblioteca-ralph-teddy-2025';
+const CHAVE_ACESSO = 'ClinicaVet2025';
 
 const autenticar = (req, res, next) => {
   // O cliente envia: Authorization: Bearer biblioteca-ralph-teddy-2025
