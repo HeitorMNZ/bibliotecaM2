@@ -1,44 +1,44 @@
-const usuarios = [
+const animais = [
   {
     id: 1,
-    nome: 'Anderson Dutra',
-    email: 'anderson@gmail.com',
+    nome: 'Heitor Martins',
+    email: 'heitor@gmail.com',
   },
   {
     id: 2,
-    nome: 'Ralph Dutra',
-    email: 'ralph@gmail.com',
+    nome: 'Heitor Nogueira',
+    email: 'heitor.nogueira@gmail.com',
   },
   {
     id: 3,
-    nome: 'Teddy Dutra',
-    email: 'teddy@gmail.com',
+    nome: 'Heitor Nogueira Martins',
+    email: 'heitor.nogueira.martins@gmail.com',
   },
 ];
 
-// Lista todos os usuarios
-const listarTodosUsuarios = async () => {
-  return usuarios;
+// Lista todos os animais
+const listarTodosAnimais = async () => {
+  return animais;
 };
 
-// Busca um usuario específico pelo ID
-const buscarUsuarioPorId = async (id) => {
-  const usuario = usuarios.find((item) => item.id === Number(id));
-  return usuario || null;
+// Busca um animal específico pelo ID
+const buscarAnimalPorId = async (id) => {
+  const animal = animais.find((item) => item.id === Number(id));
+  return animal || null;
 };
 
-// Criar um novo usuario
-const criarUsuario = async ({ nome, email }) => {
+// Criar um novo animal
+const criarAnimal = async ({ nome, email }) => {
   if (!nome || !email) {
     throw new Error('Nome e e-mail são obrigatórios.');
   }
-  const novoUsuario = {
-    id: usuarios.length + 1,
+  const novoAnimal = {
+    id: animais.length + 1,
     nome,
     email,
   };
-  usuarios.push(novoUsuario);
-  return novoUsuario;
+  animais.push(novoAnimal);
+  return novoAnimal;
 };
 
-module.exports = { listarTodosUsuarios, buscarUsuarioPorId, criarUsuario };
+module.exports = { listarTodosAnimais, buscarAnimalPorId, criarAnimal };

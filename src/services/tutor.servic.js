@@ -4,51 +4,51 @@
 const acervo = [
   {
     id: 1,
-    titulo: 'O Senhor dos Anéis',
-    autor: 'J.R.R. Tolkien',
+    titulo: 'poodle',
+    autor: 'natureza',
     disponivel: true,
   },
   {
     id: 2,
-    titulo: 'Altered Carbon',
-    autor: 'Richard K. Morgan',
+    titulo: 'labrador',
+    autor: 'natureza',
     disponivel: false,
   },
   {
     id: 3,
-    titulo: "Assassin's Creed",
-    autor: 'Oliver Bowden',
+    titulo: "golden retriever",
+    autor: 'natureza',
     disponivel: true,
   },
 ];
 
 // Lista todos os livros do acervo
-const listarTodosLivros = async () => {
+const listarTodosTutores = async () => {
   return acervo;
 };
 
-// Busca um livro específico pelo ID
-const buscarLivroPorId = async (id) => {
-  const livro = acervo.find((item) => item.id === Number(id));
+// Busca um tutor específico pelo ID
+const buscarTutorPorId = async (id) => {
+  const tutor = acervo.find((item) => item.id === Number(id));
   // Regra de negócio: se não existe, retorna null.
   // O Controller decide o que fazer com o null.
-  return livro || null;
+  return tutor || null;
 };
 
-// Criar um novo livro no acervo
-const criarLivro = async ({ titulo, autor }) => {
+// Criar um novo tutor no acervo
+const criarTutor = async ({ titulo, autor }) => {
   // Regra de negócio: título e autor são obrigatórios
   if (!titulo || !autor) {
     throw new Error('Título e autor são obrigatórios.');
   }
-  const novoLivro = {
+  const novoTutor = {
     id: acervo.length + 1,
     titulo,
     autor,
     disponivel: true,
   };
-  acervo.push(novoLivro);
-  return novoLivro;
+  acervo.push(novoTutor);
+  return novoTutor;
 };
 
-module.exports = { listarTodosLivros, buscarLivroPorId, criarLivro };
+module.exports = { listarTodosTutores, buscarTutorPorId, criarTutor };
