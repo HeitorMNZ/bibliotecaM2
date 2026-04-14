@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const usuarioController = require('../controllers/usuario.controller');
+const animalController = require('../controllers/animais.controller');
 
-router.get('/', usuarioController.listarUsuarios);
-router.get('/:id', usuarioController.buscarUsuarioPorId);
-router.post('/', usuarioController.criarUsuario);
+router.get('/', animalController.listarAnimais);
+router.get('/:id', animalController.buscarAnimalPorId);
+router.post('/', animalController.criarAnimal);
 
 module.exports = router;
