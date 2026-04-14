@@ -5,7 +5,7 @@
 const tutorService = require('../services/tutor.service');
 
 // GET /Tutors — Lista todos os Tutors
-const listarTutors = async (req, res) => {
+const listarTutores = async (req, res) => {
   try {
     const tutores = await tutorService.listarTodosTutores();
     res.status(200).json({ total: tutores.length, tutores });
@@ -52,4 +52,4 @@ const criarTutor = async (req, res) => {
   }
 };
 
-module.exports = { listarTutor, buscarTutorPorId, criarTutor };
+module.exports = { listarTutores, buscarTutorPorId, criarTutor };

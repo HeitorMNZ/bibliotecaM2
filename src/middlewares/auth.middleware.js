@@ -1,5 +1,5 @@
 // MIDDLEWARE DE AUTENTICAÇÃO: Verifica se o solicitante tem permissão.
-// Funciona como o segurança na porta da biblioteca:
+// Funciona como o segurança na porta da Clinica-Heitor:
 // sem crachá, sem entrada.
 //
 // ATENÇÃO: Esta é uma implementação SIMPLIFICADA para fins didáticos.
@@ -9,7 +9,7 @@
 const CHAVE_ACESSO = 'ClinicaVet2025';
 
 const autenticar = (req, res, next) => {
-  // O cliente envia: Authorization: Bearer biblioteca-ralph-teddy-2025
+  // O cliente envia: Authorization: Bearer Clinica-Heitor-2025
   const authHeader = req.headers['authorization'];
 
   if (!authHeader) {

@@ -1,4 +1,4 @@
-const animaiservice = require('../services/animal.service');
+const animaisService = require('../services/animais.service');
 
 // GET /animais
 const listarAnimais = async (req, res) => {
@@ -14,7 +14,7 @@ const listarAnimais = async (req, res) => {
 const buscarAnimaisPorId = async (req, res) => {
   try {
     const { id } = req.params;
-    const animal = await animaiservice.buscarUsuarioPorId(id);
+    const animal = await animaisService.buscarAnimalPorId(id);
 
     if (!animal) {
       return res.status(404).json({ erro: `Animal ${id} não encontrado.` });
@@ -30,7 +30,7 @@ const buscarAnimaisPorId = async (req, res) => {
 const criarAnimal = async (req, res) => {
   try {
     const { nome, email } = req.body;
-    const novoAnimal = await animaiservice.criarAnimal({ nome, email });
+    const novoAnimal = await animaisService.criarAnimal({ nome, email });
 
     // 201 = Created — status correto para criação bem-sucedida
     res.status(201).json({
@@ -43,4 +43,4 @@ const criarAnimal = async (req, res) => {
   }
 };
 
-module.exports = { listaranimais, buscarAnimaisPorId, criarAnimal };
+module.exports = { listarAnimais, buscarAnimaisPorId, criarAnimal };

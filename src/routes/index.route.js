@@ -8,7 +8,7 @@ const { autenticar, validarContentType } = require('../middlewares/main.middlewa
 
 // 1. Rota Raiz (Totalmente Pública)
 router.get('/', (req, res) => {
-  res.json({ sistema: 'Biblioteca Ralph & Teddy', status: 'Online' });
+  res.json({ sistema: 'Clínica Heitor', status: 'Online' });
 });
 
 // 2. Aplicando a "Barreira" de Segurança
