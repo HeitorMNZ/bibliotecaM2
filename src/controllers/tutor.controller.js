@@ -38,8 +38,8 @@ const buscarTutorPorId = async (req, res) => {
 const criarTutor = async (req, res) => {
   try {
     // Extrai os dados do corpo da requisição
-    const { titulo, autor } = req.body;
-    const novoTutor = await tutorService.criarTutor({ titulo, autor });
+    const { nome, email } = req.body;
+    const novoTutor = await tutorService.criarTutor({ nome, email });
 
     // 201 = Created — status correto para criação bem-sucedida
     res.status(201).json({

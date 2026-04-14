@@ -4,25 +4,22 @@
 const acervo = [
   {
     id: 1,
-    titulo: 'poodle',
-    autor: 'natureza',
-    disponivel: true,
+    nome: 'João Silva',
+    email: 'joao@gmail.com',
   },
   {
     id: 2,
-    titulo: 'labrador',
-    autor: 'natureza',
-    disponivel: false,
+    nome: 'Maria Oliveira',
+    email: 'maria@gmail.com',
   },
   {
     id: 3,
-    titulo: "golden retriever",
-    autor: 'natureza',
-    disponivel: true,
+    nome: 'Pedro Santos',
+    email: 'pedro@gmail.com',
   },
 ];
 
-// Lista todos os livros do acervo
+// Lista todos os tutores
 const listarTodosTutores = async () => {
   return acervo;
 };
@@ -35,17 +32,16 @@ const buscarTutorPorId = async (id) => {
   return tutor || null;
 };
 
-// Criar um novo tutor no acervo
-const criarTutor = async ({ titulo, autor }) => {
-  // Regra de negócio: título e autor são obrigatórios
-  if (!titulo || !autor) {
-    throw new Error('Título e autor são obrigatórios.');
+// Criar um novo tutor
+const criarTutor = async ({ nome, email }) => {
+  // Regra de negócio: nome e email são obrigatórios
+  if (!nome || !email) {
+    throw new Error('Nome e e-mail são obrigatórios.');
   }
   const novoTutor = {
     id: acervo.length + 1,
-    titulo,
-    autor,
-    disponivel: true,
+    nome,
+    email,
   };
   acervo.push(novoTutor);
   return novoTutor;
