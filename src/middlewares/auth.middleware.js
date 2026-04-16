@@ -5,12 +5,15 @@
 // ATENÇÃO: Esta é uma implementação SIMPLIFICADA para fins didáticos.
 // A partir da Aula 44, utilizaremos JWT (JSON Web Tokens) de verdade.
 
-// Chave de acesso temporária — em produção, isso vem de variável de ambiente
-const CHAVE_ACESSO = 'ClinicaVet2025';
+// Chave de acesso vinda de variável de ambiente
+const CHAVE_ACESSO = process.env.CHAVE_ACESSO;
+
+if (!CHAVE_ACESSO) {
+  throw new Error('A variável CHAVE_ACESSO não foi definida no arquivo .env');
+}
 
 const autenticar = (req, res, next) => {
-  // O cliente envia: Authorization: Bearer Clinica-Heitor-2025
-  const authHeader = req.headers['authorization'];
+  const authHeader = req.get('Authorization') || req.headers.authorization;
 
   if (!authHeader) {
     return res.status(401).json({
@@ -19,8 +22,14 @@ const autenticar = (req, res, next) => {
     });
   }
 
-  // Extrai apenas o token (remove o prefixo 'Bearer ')
-  const token = authHeader.split(' ')[1];
+  const [scheme, token] = authHeader.split(' ');
+
+  if (!scheme || scheme.toLowerCase() !== 'bearer' || !token) {
+    return res.status(401).json({
+      erro: 'Cabeçalho de autorização inválido.',
+      dica: 'Use Authorization: Bearer <chave>',
+    });
+  }
 
   if (token !== CHAVE_ACESSO) {
     return res.status(403).json({
@@ -28,7 +37,6 @@ const autenticar = (req, res, next) => {
     });
   }
 
-  // Token válido — libera a passagem para o próximo posto
   next();
 };
 
